@@ -1,0 +1,335 @@
+/* Settings Styles */
+.settings-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.settings-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.settings-content {
+    flex: 1;
+}
+
+.settings-nav {
+    background-color: var(--color-card);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--color-foreground);
+    border-left: 3px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.settings-nav-item:hover {
+    background-color: var(--color-accent);
+}
+
+.settings-nav-item.active {
+    background-color: var(--color-accent);
+    border-left-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.settings-nav-item i {
+    margin-right: 0.75rem;
+    width: 1.25rem;
+    text-align: center;
+}
+
+/* Settings Sections */
+.settings-section {
+    display: none;
+}
+
+.settings-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Notification Groups */
+.notification-group {
+    margin-bottom: 2rem;
+}
+
+.notification-group h4 {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Checkbox Label */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 0.75rem;
+}
+
+/* Theme Options */
+.theme-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.theme-option {
+    flex: 1;
+}
+
+.theme-option input[type="radio"] {
+    display: none;
+}
+
+.theme-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.theme-option input[type="radio"]:checked + .theme-card {
+    border-color: var(--color-primary);
+}
+
+.theme-preview {
+    width: 100%;
+    height: 100px;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 0.75rem;
+}
+
+.light-preview {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+}
+
+.dark-preview {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+}
+
+.system-preview {
+    background: linear-gradient(to right, #ffffff 50%, #1e293b 50%);
+    border: 1px solid #e2e8f0;
+}
+
+/* Color Options */
+.color-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.color-option input[type="radio"] {
+    display: none;
+}
+
+.color-circle {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 3px solid transparent;
+}
+
+.color-option input[type="radio"]:checked + .color-circle {
+    border-color: var(--color-foreground);
+}
+
+.blue {
+    background-color: #3b82f6;
+}
+
+.purple {
+    background-color: #8b5cf6;
+}
+
+.green {
+    background-color: #10b981;
+}
+
+.orange {
+    background-color: #f59e0b;
+}
+
+.red {
+    background-color: #ef4444;
+}
+
+/* Range Slider */
+.range-slider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.slider {
+    flex: 1;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: var(--color-border);
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+}
+
+.range-value {
+    min-width: 3rem;
+    text-align: center;
+}
+
+/* Integrations */
+.integrations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.integration-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-accent);
+    transition: all var(--transition-fast);
+}
+
+.integration-item:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.integration-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.google {
+    background-color: #ea4335;
+}
+
+.slack {
+    background-color: #4a154b;
+}
+
+.dropbox {
+    background-color: #0061ff;
+}
+
+.trello {
+    background-color: #0079bf;
+}
+
+.integration-info {
+    flex: 1;
+}
+
+.integration-info h4 {
+    margin-bottom: 0.25rem;
+}
+
+.integration-info p {
+    color: var(--color-muted-foreground);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.integration-action {
+    margin-left: 1rem;
+}
+
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn.connected {
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.btn.connected i {
+    margin-right: 0.375rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .settings-container {
+        flex-direction: column;
+    }
+    
+    .settings-sidebar {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .settings-nav {
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .settings-nav-item {
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .settings-nav-item.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--color-primary);
+    }
+}
+
+@media (max-width: 768px) {
+    .theme-options {
+        flex-direction: column;
+    }
+}

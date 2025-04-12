@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackPal - Team Members</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/members.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <i class="fas fa-box-open logo-icon"></i>
+                    <span class="logo-text">PackPal</span>
+                </div>
+                <button class="sidebar-close" id="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="checklist.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Checklist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="alerts.html">
+                            <i class="fas fa-bell"></i>
+                            <span>Alerts</span>
+                            <span class="nav-badge">3</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="members.html">
+                            <i class="fas fa-users"></i>
+                            <span>Members</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn btn-outline btn-block" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-start">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search..." class="search-input">
+                    </div>
+                </div>
+                <div class="nav-end">
+                    <button class="nav-btn notification-btn" id="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge notification-badge">3</span>
+                    </button>
+                    <button class="nav-btn" id="theme-toggle-btn">
+                        <i class="fas fa-sun light-icon"></i>
+                        <i class="fas fa-moon dark-icon"></i>
+                    </button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-btn" id="user-dropdown-btn">
+                            <div class="avatar">JD</div>
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="user-dropdown-menu">
+                            <div class="dropdown-header">My Account</div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span><a href="profile.html">Profile</a></span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span><a href="settings.html">Settings</a></span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Members Content -->
+            <div class="content-container">
+                <div class="content-header-with-action">
+                    <h1>Team Members</h1>
+                    <button class="btn btn-primary" id="add-member-btn">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Add Member</span>
+                    </button>
+                </div>
+
+                <div class="members-grid" id="members-grid">
+                    <!-- Members will be added dynamically -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div class="modal" id="add-member-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Team Member</h3>
+                <button class="modal-close" id="add-member-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="add-member-form">
+                    <div class="form-group">
+                        <label for="member-name">Full Name</label>
+                        <input type="text" id="member-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-email">Email</label>
+                        <input type="email" id="member-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-role">Role</label>
+                        <div class="select-container">
+                            <select id="member-role" required>
+                                <option value="Owner">Owner</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Member" selected>Member</option>
+                                <option value="Viewer">Viewer</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-icon"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="add-member-cancel">Cancel</button>
+                <button class="btn btn-primary" id="add-member-submit">Add Member</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/members.js"></script>
+</body>
+</html>

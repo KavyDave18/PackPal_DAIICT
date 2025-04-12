@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackPal - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <i class="fas fa-box-open logo-icon"></i>
+                    <span class="logo-text">PackPal</span>
+                </div>
+                <button class="sidebar-close" id="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="checklist.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Checklist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="alerts.html">
+                            <i class="fas fa-bell"></i>
+                            <span>Alerts</span>
+                            <span class="nav-badge">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="members.html">
+                            <i class="fas fa-users"></i>
+                            <span>Members</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn btn-outline btn-block" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-start">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search..." class="search-input">
+                    </div>
+                </div>
+                <div class="nav-end">
+                    <button class="nav-btn notification-btn" id="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge notification-badge">3</span>
+                    </button>
+                    <button class="nav-btn" id="theme-toggle-btn">
+                        <i class="fas fa-sun light-icon"></i>
+                        <i class="fas fa-moon dark-icon"></i>
+                    </button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-btn" id="user-dropdown-btn">
+                            <div class="avatar">JD</div>
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="user-dropdown-menu">
+                            <div class="dropdown-header">My Account</div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span><a href="profile.html">profile</a></span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span><a href="settings.html">Settings</a></span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-container">
+                <div class="content-header">
+                    <h1>Dashboard</h1>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="card stats-card">
+                        <div class="stats-card-header">
+                            <h3>Total Items</h3>
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stats-card-body">
+                            <div class="stats-value">25</div>
+                            <p class="stats-info">3 items added today</p>
+                        </div>
+                    </div>
+
+                    <div class="card stats-card">
+                        <div class="stats-card-header">
+                            <h3>Packed Items</h3>
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stats-card-body">
+                            <div class="stats-value">12</div>
+                            <p class="stats-info">48% of total items</p>
+                        </div>
+                    </div>
+
+                    <div class="card stats-card">
+                        <div class="stats-card-header">
+                            <h3>Delivered Items</h3>
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stats-card-body">
+                            <div class="stats-value">5</div>
+                            <p class="stats-info">20% of total items</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Progress -->
+                <div class="charts-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Packing Progress</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress-container">
+                                <div class="progress-header">
+                                    <div>
+                                        <p class="progress-title">Overall Progress</p>
+                                        <p class="progress-subtitle">68% complete</p>
+                                    </div>
+                                    <div class="progress-percentage">68%</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 68%"></div>
+                                </div>
+                            </div>
+
+                            <div class="status-list">
+                                <div class="status-item">
+                                    <div class="status-indicator" style="background-color: #94a3b8;"></div>
+                                    <div class="status-label">To Pack</div>
+                                    <div class="status-value">8</div>
+                                </div>
+                                <div class="status-item">
+                                    <div class="status-indicator" style="background-color: #3b82f6;"></div>
+                                    <div class="status-label">Packed</div>
+                                    <div class="status-value">12</div>
+                                </div>
+                                <div class="status-item">
+                                    <div class="status-indicator" style="background-color: #22c55e;"></div>
+                                    <div class="status-label">Delivered</div>
+                                    <div class="status-value">5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Items by Status</h3>
+                        </div>
+                        <div class="card-body chart-container">
+                            <canvas id="status-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card activity-card">
+                    <div class="card-header">
+                        <h3>Recent Activity</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">Sarah added Camping Tent to the checklist</p>
+                                    <p class="activity-time">10 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">Mike marked Sleeping Bag as packed</p>
+                                    <p class="activity-time">1 hour ago</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">Lisa assigned Cooking Supplies to John</p>
+                                    <p class="activity-time">3 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">Deadline approaching for Trip Essentials</p>
+                                    <p class="activity-time">5 hours ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackPal - Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <i class="fas fa-box-open logo-icon"></i>
+                    <span class="logo-text">PackPal</span>
+                </div>
+                <button class="sidebar-close" id="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="checklist.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Checklist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="alerts.html">
+                            <i class="fas fa-bell"></i>
+                            <span>Alerts</span>
+                            <span class="nav-badge">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="members.html">
+                            <i class="fas fa-users"></i>
+                            <span>Members</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn btn-outline btn-block" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-start">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search..." class="search-input">
+                    </div>
+                </div>
+                <div class="nav-end">
+                    <button class="nav-btn notification-btn" id="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge notification-badge">3</span>
+                    </button>
+                    <button class="nav-btn" id="theme-toggle-btn">
+                        <i class="fas fa-sun light-icon"></i>
+                        <i class="fas fa-moon dark-icon"></i>
+                    </button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-btn" id="user-dropdown-btn">
+                            <div class="avatar">JD</div>
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="user-dropdown-menu">
+                            <div class="dropdown-header">My Account</div>
+                            <a href="profile.html" class="dropdown-item active">
+                                <i class="fas fa-user"></i>
+                                <span><a href="profile.html">Profile</a></span>
+                            </a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span><a href="settings.html">Settings</a></span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Dropdown -->
+            <div class="notification-dropdown" id="notification-dropdown">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <a href="alerts.html" class="view-all">View All</a>
+                </div>
+                <div class="notification-body">
+                    <div class="notification-list" id="notification-list">
+                        <!-- Notifications will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="content-container">
+                <div class="content-header">
+                    <h1>My Profile</h1>
+                </div>
+
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-avatar-container">
+                            <div class="profile-avatar">JD</div>
+                            <button class="profile-avatar-edit">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h2>John Doe</h2>
+                            <p class="profile-email">john@example.com</p>
+                            <div class="profile-badge badge badge-owner">Owner</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-tabs">
+                        <button class="profile-tab active" data-tab="personal">Personal Information</button>
+                        <button class="profile-tab" data-tab="security">Security</button>
+                        <button class="profile-tab" data-tab="activity">Recent Activity</button>
+                    </div>
+
+                    <div class="profile-content">
+                        <!-- Personal Information Tab -->
+                        <div class="profile-tab-content active" id="personal-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Personal Information</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="profile-form">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="first-name">First Name</label>
+                                                <input type="text" id="first-name" value="John">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="last-name">Last Name</label>
+                                                <input type="text" id="last-name" value="Doe">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" id="email" value="john@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="tel" id="phone" value="+1 (555) 123-4567">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="bio">Bio</label>
+                                            <textarea id="bio" rows="4">Outdoor enthusiast and camping lover. I enjoy organizing group trips and making sure everyone has what they need for a great adventure.</textarea>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Tab -->
+                        <div class="profile-tab-content" id="security-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Change Password</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="password-form">
+                                        <div class="form-group">
+                                            <label for="current-password">Current Password</label>
+                                            <div class="input-container">
+                                                <i class="fas fa-lock input-icon"></i>
+                                                <input type="password" id="current-password">
+                                                <i class="fas fa-eye-slash toggle-password"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="new-password">New Password</label>
+                                            <div class="input-container">
+                                                <i class="fas fa-lock input-icon"></i>
+                                                <input type="password" id="new-password">
+                                                <i class="fas fa-eye-slash toggle-password"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirm-password">Confirm New Password</label>
+                                            <div class="input-container">
+                                                <i class="fas fa-lock input-icon"></i>
+                                                <input type="password" id="confirm-password">
+                                                <i class="fas fa-eye-slash toggle-password"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Update Password</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="card mt-4">
+                                <div class="card-header">
+                                    <h3>Two-Factor Authentication</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="two-factor-status">
+                                        <div class="status-indicator enabled">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>Two-factor authentication is enabled</span>
+                                        </div>
+                                        <button class="btn btn-outline">Disable</button>
+                                    </div>
+                                    <p class="text-muted mt-3">
+                                        Two-factor authentication adds an extra layer of security to your account by requiring more than just a password to sign in.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity Tab -->
+                        <div class="profile-tab-content" id="activity-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Recent Activity</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="activity-timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon">
+                                                <i class="fas fa-sign-in-alt"></i>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h4>Account Login</h4>
+                                                <p>You logged in from Chrome on Windows</p>
+                                                <span class="timeline-date">Today, 10:30 AM</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon">
+                                                <i class="fas fa-edit"></i>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h4>Item Updated</h4>
+                                                <p>You marked "Sleeping Bag" as packed</p>
+                                                <span class="timeline-date">Yesterday, 3:45 PM</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h4>Item Added</h4>
+                                                <p>You added "Hiking Boots" to the checklist</p>
+                                                <span class="timeline-date">May 15, 2023, 2:30 PM</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon">
+                                                <i class="fas fa-user-plus"></i>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h4>Member Added</h4>
+                                                <p>You invited Sarah Smith to join the group</p>
+                                                <span class="timeline-date">May 12, 2023, 11:20 AM</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon">
+                                                <i class="fas fa-cog"></i>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h4>Settings Updated</h4>
+                                                <p>You changed your notification preferences</p>
+                                                <span class="timeline-date">May 10, 2023, 9:15 AM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

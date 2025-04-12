@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackPal - Settings</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <i class="fas fa-box-open logo-icon"></i>
+                    <span class="logo-text">PackPal</span>
+                </div>
+                <button class="sidebar-close" id="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="checklist.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Checklist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="alerts.html">
+                            <i class="fas fa-bell"></i>
+                            <span>Alerts</span>
+                            <span class="nav-badge">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="members.html">
+                            <i class="fas fa-users"></i>
+                            <span>Members</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn btn-outline btn-block" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-start">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search..." class="search-input">
+                    </div>
+                </div>
+                <div class="nav-end">
+                    <button class="nav-btn notification-btn" id="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge notification-badge">3</span>
+                    </button>
+                    <button class="nav-btn" id="theme-toggle-btn">
+                        <i class="fas fa-sun light-icon"></i>
+                        <i class="fas fa-moon dark-icon"></i>
+                    </button>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-btn" id="user-dropdown-btn">
+                            <div class="avatar">JD</div>
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="user-dropdown-menu">
+                            <div class="dropdown-header">My Account</div>
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span><a href="profile.html">Profile</a></span>
+                            </a>
+                            <a href="settings.html" class="dropdown-item active">
+                                <i class="fas fa-cog"></i>
+                                <span><a href="settings.html">Settings</a></span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Dropdown -->
+            <div class="notification-dropdown" id="notification-dropdown">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <a href="alerts.html" class="view-all">View All</a>
+                </div>
+                <div class="notification-body">
+                    <div class="notification-list" id="notification-list">
+                        <!-- Notifications will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="content-container">
+                <div class="content-header">
+                    <h1>Settings</h1>
+                </div>
+
+                <div class="settings-container">
+                    <div class="settings-sidebar">
+                        <div class="settings-nav">
+                            <a href="#general" class="settings-nav-item active" data-section="general">
+                                <i class="fas fa-sliders-h"></i>
+                                <span>General</span>
+                            </a>
+                            <a href="#notifications" class="settings-nav-item" data-section="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                            <a href="#appearance" class="settings-nav-item" data-section="appearance">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>Appearance</span>
+                            </a>
+                            <a href="#privacy" class="settings-nav-item" data-section="privacy">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Privacy</span>
+                            </a>
+                            <a href="#integrations" class="settings-nav-item" data-section="integrations">
+                                <i class="fas fa-plug"></i>
+                                <span>Integrations</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="settings-content">
+                        <!-- General Settings -->
+                        <div class="settings-section active" id="general-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>General Settings</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="general-settings-form">
+                                        <div class="form-group">
+                                            <label for="language">Language</label>
+                                            <div class="select-container">
+                                                <select id="language">
+                                                    <option value="en">English</option>
+                                                    <option value="es">Spanish</option>
+                                                    <option value="fr">French</option>
+                                                    <option value="de">German</option>
+                                                </select>
+                                                <i class="fas fa-chevron-down select-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="timezone">Timezone</label>
+                                            <div class="select-container">
+                                                <select id="timezone">
+                                                    <option value="utc-8">Pacific Time (UTC-8)</option>
+                                                    <option value="utc-7">Mountain Time (UTC-7)</option>
+                                                    <option value="utc-6">Central Time (UTC-6)</option>
+                                                    <option value="utc-5" selected>Eastern Time (UTC-5)</option>
+                                                    <option value="utc+0">UTC</option>
+                                                    <option value="utc+1">Central European Time (UTC+1)</option>
+                                                </select>
+                                                <i class="fas fa-chevron-down select-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date-format">Date Format</label>
+                                            <div class="select-container">
+                                                <select id="date-format">
+                                                    <option value="mm-dd-yyyy">MM-DD-YYYY</option>
+                                                    <option value="dd-mm-yyyy">DD-MM-YYYY</option>
+                                                    <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+                                                </select>
+                                                <i class="fas fa-chevron-down select-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked>
+                                                <span>Enable desktop notifications</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked>
+                                                <span>Show task due dates in local time</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notification Settings -->
+                        <div class="settings-section" id="notifications-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Notification Settings</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="notification-settings-form">
+                                        <div class="notification-group">
+                                            <h4>Email Notifications</h4>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox" checked>
+                                                    <span>New item assignments</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox" checked>
+                                                    <span>Status changes</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox" checked>
+                                                    <span>New team members</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox">
+                                                    <span>Weekly summary</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="notification-group">
+                                            <h4>Push Notifications</h4>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox" checked>
+                                                    <span>New item assignments</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox" checked>
+                                                    <span>Status changes</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox" checked>
+                                                    <span>New team members</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="checkbox-label">
+                                                    <input type="checkbox" checked>
+                                                    <span>Deadline reminders</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Appearance Settings -->
+                        <div class="settings-section" id="appearance-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Appearance Settings</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="appearance-settings-form">
+                                        <div class="form-group">
+                                            <label>Theme</label>
+                                            <div class="theme-options">
+                                                <div class="theme-option">
+                                                    <input type="radio" name="theme" id="theme-light" value="light" checked>
+                                                    <label for="theme-light" class="theme-card">
+                                                        <div class="theme-preview light-preview"></div>
+                                                        <span>Light</span>
+                                                    </label>
+                                                </div>
+                                                <div class="theme-option">
+                                                    <input type="radio" name="theme" id="theme-dark" value="dark">
+                                                    <label for="theme-dark" class="theme-card">
+                                                        <div class="theme-preview dark-preview"></div>
+                                                        <span>Dark</span>
+                                                    </label>
+                                                </div>
+                                                <div class="theme-option">
+                                                    <input type="radio" name="theme" id="theme-system" value="system">
+                                                    <label for="theme-system" class="theme-card">
+                                                        <div class="theme-preview system-preview"></div>
+                                                        <span>System</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Accent Color</label>
+                                            <div class="color-options">
+                                                <div class="color-option">
+                                                    <input type="radio" name="color" id="color-blue" value="blue" checked>
+                                                    <label for="color-blue" class="color-circle blue"></label>
+                                                </div>
+                                                <div class="color-option">
+                                                    <input type="radio" name="color" id="color-purple" value="purple">
+                                                    <label for="color-purple" class="color-circle purple"></label>
+                                                </div>
+                                                <div class="color-option">
+                                                    <input type="radio" name="color" id="color-green" value="green">
+                                                    <label for="color-green" class="color-circle green"></label>
+                                                </div>
+                                                <div class="color-option">
+                                                    <input type="radio" name="color" id="color-orange" value="orange">
+                                                    <label for="color-orange" class="color-circle orange"></label>
+                                                </div>
+                                                <div class="color-option">
+                                                    <input type="radio" name="color" id="color-red" value="red">
+                                                    <label for="color-red" class="color-circle red"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Font Size</label>
+                                            <div class="range-slider">
+                                                <input type="range" min="12" max="20" value="16" class="slider" id="font-size">
+                                                <div class="range-value"><span id="font-size-value">16</span>px</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked>
+                                                <span>Enable animations</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Settings -->
+                        <div class="settings-section" id="privacy-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Privacy Settings</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="privacy-settings-form">
+                                        <div class="form-group">
+                                            <label>Profile Visibility</label>
+                                            <div class="select-container">
+                                                <select id="profile-visibility">
+                                                    <option value="public">Public - Visible to all team members</option>
+                                                    <option value="team" selected>Team Only - Visible to your team</option>
+                                                    <option value="private">Private - Visible only to admins</option>
+                                                </select>
+                                                <i class="fas fa-chevron-down select-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Activity Status</label>
+                                            <div class="select-container">
+                                                <select id="activity-status">
+                                                    <option value="online" selected>Show when I'm online</option>
+                                                    <option value="hidden">Hide my online status</option>
+                                                </select>
+                                                <i class="fas fa-chevron-down select-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked>
+                                                <span>Show my email to team members</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked>
+                                                <span>Allow others to assign items to me</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox">
+                                                <span>Share my activity with team members</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Integrations Settings -->
+                        <div class="settings-section" id="integrations-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Integrations</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="integrations-list">
+                                        <div class="integration-item">
+                                            <div class="integration-icon google">
+                                                <i class="fab fa-google"></i>
+                                            </div>
+                                            <div class="integration-info">
+                                                <h4>Google Calendar</h4>
+                                                <p>Sync your checklist deadlines with Google Calendar</p>
+                                            </div>
+                                            <div class="integration-action">
+                                                <button class="btn btn-outline btn-sm">Connect</button>
+                                            </div>
+                                        </div>
+                                        <div class="integration-item">
+                                            <div class="integration-icon slack">
+                                                <i class="fab fa-slack"></i>
+                                            </div>
+                                            <div class="integration-info">
+                                                <h4>Slack</h4>
+                                                <p>Get notifications in your Slack workspace</p>
+                                            </div>
+                                            <div class="integration-action">
+                                                <button class="btn btn-outline btn-sm connected">
+                                                    <i class="fas fa-check"></i> Connected
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="integration-item">
+                                            <div class="integration-icon dropbox">
+                                                <i class="fab fa-dropbox"></i>
+                                            </div>
+                                            <div class="integration-info">
+                                                <h4>Dropbox</h4>
+                                                <p>Attach files from your Dropbox account</p>
+                                            </div>
+                                            <div class="integration-action">
+                                                <button class="btn btn-outline btn-sm">Connect</button>
+                                            </div>
+                                        </div>
+                                        <div class="integration-item">
+                                            <div class="integration-icon trello">
+                                                <i class="fab fa-trello"></i>
+                                            </div>
+                                            <div class="integration-info">
+                                                <h4>Trello</h4>
+                                                <p>Import boards and cards from Trello</p>
+                                            </div>
+                                            <div class="integration-action">
+                                                <button class="btn btn-outline btn-sm">Connect</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

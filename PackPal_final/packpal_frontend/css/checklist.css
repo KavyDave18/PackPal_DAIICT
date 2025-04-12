@@ -1,0 +1,221 @@
+/* Checklist Grid */
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.checklist-column {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checklist-header {
+    display: flex;
+    align-items: center;
+}
+
+.checklist-header h3 {
+    display: flex;
+    align-items: center;
+}
+
+.checklist-header h3 i {
+    margin-right: 0.5rem;
+}
+
+.checklist-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 0.5rem;
+}
+
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Checklist Item */
+.checklist-item {
+    background-color: var(--color-card);
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+    cursor: grab;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.checklist-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.checklist-item:active {
+    cursor: grabbing;
+}
+
+.checklist-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.checklist-item-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.checklist-item-badge {
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+}
+
+.checklist-item-description {
+    color: var(--color-muted-foreground);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.checklist-item-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-muted-foreground);
+}
+
+.checklist-item-category {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    background-color: var(--color-accent);
+    border-radius: var(--border-radius-full);
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+}
+
+.checklist-item-assigned {
+    display: flex;
+    align-items: center;
+}
+
+.checklist-item-assigned i {
+    margin-right: 0.25rem;
+}
+
+.checklist-item-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.checklist-item-btn {
+    background: none;
+    border: none;
+    color: var(--color-muted-foreground);
+    padding: 0.25rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.checklist-item-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-foreground);
+}
+
+.checklist-item-dropdown {
+    position: relative;
+}
+
+.checklist-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--color-dropdown);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    width: 180px;
+    z-index: var(--z-index-dropdown);
+    display: none;
+    animation: dropdownFadeIn 0.2s ease-out;
+    border: 1px solid var(--color-dropdown-border);
+}
+
+.checklist-dropdown-menu.show {
+    display: block;
+}
+
+.checklist-dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-dropdown-foreground);
+    transition: background-color var(--transition-fast);
+    font-size: 0.875rem;
+}
+
+.checklist-dropdown-item:hover {
+    background-color: var(--color-dropdown-hover);
+}
+
+.checklist-dropdown-item i {
+    margin-right: 0.5rem;
+    width: 1rem;
+    text-align: center;
+}
+
+/* Drag and Drop */
+.checklist-item.dragging {
+    opacity: 0.5;
+    box-shadow: var(--shadow-lg);
+}
+
+.checklist-column.drag-over .card {
+    border: 2px dashed var(--color-primary);
+}
+
+/* Empty State */
+.checklist-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--color-muted-foreground);
+    text-align: center;
+}
+
+.checklist-empty i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Status Colors */
+.badge-to-pack {
+    background-color: var(--color-gray);
+}
+
+.badge-packed {
+    background-color: var(--color-blue);
+}
+
+.badge-delivered {
+    background-color: var(--color-green);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .checklist-grid {
+        grid-template-columns: 1fr;
+    }
+}
